@@ -28,7 +28,7 @@ password_input = '//*[@id="auth0-lock-container-1"]/div/div[2]/form/div/div/div/
 login_button = '//*[@id="auth0-lock-container-1"]/div/div[2]/form/div/div/div/button'
 week_back_button = '//*[@id="app"]/div/main/div/div/div[13]/div[1]/div/a'
 monday_standup = '//*[@id="app"]/div/main/div/div/div[13]/div/div[3]/div[1]/button'
-tuesday_standup = '//*[@id="app"]/div/main/div/div/div[13]/div/div[3]/div[2]/button'
+tuesday_standup = '//*[@id="app"]/div/main/div/div/div[14]/div/div[3]/div[2]/button'
 wednesday_standup = '//*[@id="app"]/div/main/div/div/div[13]/div/div[3]/div[3]/button'
 thursday_standup = '//*[@id="app"]/div/main/div/div/div[13]/div/div[3]/div[4]/button'
 friday_standup = '//*[@id="app"]/div/main/div/div/div[14]/div/div[3]/div[5]/button'
@@ -86,7 +86,7 @@ driver.find_element_by_xpath(login_button).click()
 sleep(3)
 
 # Navegar a las formas
-driver.find_element_by_xpath(week_back_button).click()
+# driver.find_element_by_xpath(week_back_button).click()
 sleep(2)
 
 # Abrir dia de la semana correspondiente
