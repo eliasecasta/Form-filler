@@ -26,14 +26,14 @@ current_day = get_day()
 mail_input = '//*[@id="1-email"]'
 password_input = '//*[@id="auth0-lock-container-1"]/div/div[2]/form/div/div/div/div[2]/div[2]/span/div/div/div/div/div/div/div/div/div/div/div[2]/div/div/input'
 login_button = '//*[@id="auth0-lock-container-1"]/div/div[2]/form/div/div/div/button'
-week_back_button = '//*[@id="app"]/div/main/div/div/div[13]/div[1]/div/a'
-monday_standup = '//*[@id="app"]/div/main/div/div/div[13]/div/div[3]/div[1]/button'
+week_back_button = '//*[@id="app"]/div/main/div/div/div[14]/div[1]/div/a'
+monday_standup = '//*[@id="app"]/div/main/div/div/div[14]/div/div[3]/div[1]/button'
 tuesday_standup = '//*[@id="app"]/div/main/div/div/div[14]/div/div[3]/div[2]/button'
-wednesday_standup = '//*[@id="app"]/div/main/div/div/div[13]/div/div[3]/div[3]/button'
-thursday_standup = '//*[@id="app"]/div/main/div/div/div[13]/div/div[3]/div[4]/button'
+wednesday_standup = '//*[@id="app"]/div/main/div/div/div[14]/div/div[3]/div[3]/button'
+thursday_standup = '//*[@id="app"]/div/main/div/div/div[14]/div/div[3]/div[4]/button'
 friday_standup = '//*[@id="app"]/div/main/div/div/div[14]/div/div[3]/div[5]/button'
 
-# Mon-Thur buttons
+# Mon-Thur form buttons
 achieved_goals = '//*[@id="standup_achieved_goals"]'
 went_well = '//*[@id="standup_upsides"]'
 nothing_wrong = '//*[@id="blockers_none"]'
@@ -44,7 +44,7 @@ rest = '//*[@id="standup_goals_confidence"]'
 happy_face = '//*[@id="motivation_0"]'
 submit = '//*[@id="new_standup"]/div[2]/input'
 
-# Fri buttons
+# Fri form buttons
 friday_achieved_goals = '//*[@id="retrospective_goal_achievement"]'
 friday_nothing_wrong = '//*[@id="retrospective_blockers_none"]'
 friday_went_well = '//*[@id="retrospective_upsides"]'
