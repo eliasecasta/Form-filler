@@ -91,15 +91,15 @@ sleep(2)
 
 # Abrir dia de la semana correspondiente
 if current_day == "Monday":
-    driver.find_element_by_css_selector()(monday_standup).click()
+    driver.find_element_by_css_selector(monday_standup).click()
 elif current_day == "Tuesday":
     driver.find_element_by_css_selector(tuesday_standup).click()
 elif current_day == "Wednesday":
-    driver.find_element_by_css_selector()(wednesday_standup).click()
+    driver.find_element_by_css_selector(wednesday_standup).click()
 elif current_day == "Thursday":
-    driver.find_element_by_css_selector()(thursday_standup).click()
+    driver.find_element_by_css_selector(thursday_standup).click()
 elif current_day == "Friday":
-    driver.find_element_by_css_selector()(friday_standup).click()
+    driver.find_element_by_css_selector(friday_standup).click()
 else:
     print(f"""{notice}
   Can't do weekends yet :P
