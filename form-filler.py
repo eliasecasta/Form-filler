@@ -27,11 +27,11 @@ mail_input = '//*[@id="1-email"]'
 password_input = '//*[@id="auth0-lock-container-1"]/div/div[2]/form/div/div/div/div[2]/div[2]/span/div/div/div/div/div/div/div/div/div/div/div[2]/div/div/input'
 login_button = '//*[@id="auth0-lock-container-1"]/div/div[2]/form/div/div/div/button'
 week_back_button = '//*[@id="app"]/div/main/div/div/div[14]/div[1]/div/a'
-monday_standup = '//*[@id="app"]/div/main/div/div/div[14]/div/div[3]/div[1]/button'
-tuesday_standup = '//*[@id="app"]/div/main/div/div/div[14]/div/div[3]/div[2]/button'
-wednesday_standup = '//*[@id="app"]/div/main/div/div/div[14]/div/div[3]/div[3]/button'
-thursday_standup = '//*[@id="app"]/div/main/div/div/div[14]/div/div[3]/div[4]/button'
-friday_standup = '//*[@id="app"]/div/main/div/div/div[14]/div/div[3]/div[5]/button'
+monday_standup = '#app > div > main > div > div > div.row.no-gutters.mt-2 > div > div.row.no-gutters.mt-2.mb-2.standup-blocks > div:nth-child(1) > button'
+tuesday_standup = '#app > div > main > div > div > div.row.no-gutters.mt-2 > div > div.row.no-gutters.mt-2.mb-2.standup-blocks > div:nth-child(2) > button'
+wednesday_standup = '#app > div > main > div > div > div.row.no-gutters.mt-2 > div > div.row.no-gutters.mt-2.mb-2.standup-blocks > div:nth-child(3) > button'
+thursday_standup = '#app > div > main > div > div > div.row.no-gutters.mt-2 > div > div.row.no-gutters.mt-2.mb-2.standup-blocks > div:nth-child(4) > button'
+friday_standup = '#app > div > main > div > div > div.row.no-gutters.mt-2 > div > div.row.no-gutters.mt-2.mb-2.standup-blocks > div.pb-3.pt-3.col.dashboard-daily-info-boxes.text-center.retrospective-blocks > button'
 
 # Mon-Thur form buttons
 achieved_goals = '//*[@id="standup_achieved_goals"]'
@@ -91,15 +91,15 @@ sleep(2)
 
 # Abrir dia de la semana correspondiente
 if current_day == "Monday":
-    driver.find_element_by_xpath(monday_standup).click()
+    driver.find_element_by_css_selector()(monday_standup).click()
 elif current_day == "Tuesday":
-    driver.find_element_by_xpath(tuesday_standup).click()
+    driver.find_element_by_css_selector(tuesday_standup).click()
 elif current_day == "Wednesday":
-    driver.find_element_by_xpath(wednesday_standup).click()
+    driver.find_element_by_css_selector()(wednesday_standup).click()
 elif current_day == "Thursday":
-    driver.find_element_by_xpath(thursday_standup).click()
+    driver.find_element_by_css_selector()(thursday_standup).click()
 elif current_day == "Friday":
-    driver.find_element_by_xpath(friday_standup).click()
+    driver.find_element_by_css_selector()(friday_standup).click()
 else:
     print(f"""{notice}
   Can't do weekends yet :P
