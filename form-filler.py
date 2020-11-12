@@ -4,7 +4,6 @@ from time import sleep
 from user_pass import mail_pass
 from datetime import date
 import calendar
-from pdb import set_trace
 
 def get_day():
     today = date.today()
@@ -16,13 +15,13 @@ def multiple_selection(option):
 
 email, password = mail_pass()
 
-chromedriver_location = r"C:\Users\Elias\Desktop\Elias\chromedriver.exe"
+chromedriver_location = 'chromedriver.exe'
 driver = webdriver.Chrome(chromedriver_location)
 driver.get('https://dashboard.microverse.org/login')
 
 same_form_days = ["Monday", "Tuesday", "Wednesday", "Thursday"]
 notice = "*" * 15
-current_day = get_day()
+current_day = "Friday"
 mail_input = '//*[@id="1-email"]'
 password_input = '//*[@id="auth0-lock-container-1"]/div/div[2]/form/div/div/div/div[2]/div[2]/span/div/div/div/div/div/div/div/div/div/div/div[2]/div/div/input'
 login_button = '//*[@id="auth0-lock-container-1"]/div/div[2]/form/div/div/div/button'
@@ -53,7 +52,7 @@ friday_goal2 = '//*[@id="retrospective_goals_2"]'
 friday_goal3 = '//*[@id="retrospective_goals_3"]'
 friday_rest = '//*[@id="retrospective_action_items"]'
 friday_happy_face = '//*[@id="motivation_0"]'
-friday_submit = '//*[@id="new_standup"]/div[2]/input'
+friday_submit = '//*[@id="new_retrospective"]/div[2]/input'
 faster = '//*[@id="retrospective_partner_learn_style_feedback_a_faster_learner"]'
 experienced = '//*[@id="retrospective_partner_learn_style_feedback_too_experienced"]'
 punctual = '//*[@id="retrospective_partner_learn_style_feedback_punctual"]'
@@ -71,12 +70,12 @@ standup_enjoy = '//*[@id="retrospective_standup_enjoyment"]'
 standup_daily_structure = '//*[@id="retrospective_standup_team_alignment_feedback"]'
 networking = '//*[@id="retrospective_networking_activity"]'
 microverse_recommend = '//*[@id="retrospective_recommend_microverse"]'
-friday_submit = '//*[@id="new_retrospective"]/div[2]/input'
+
 partner_rating_array = [faster, experienced, punctual, good_com,
                         great_collab, open_to_ideas, professional, motivated, inspiring, patient,
                         supportive, friendly, most_times]
 
-# Esperar a que cargue la pagina antes de poner los datos
+# Wait for page to load before inputing the user data
 sleep(5)
 
 # Login block
@@ -85,11 +84,11 @@ driver.find_element_by_xpath(password_input).send_keys(password)
 driver.find_element_by_xpath(login_button).click()
 sleep(3)
 
-# Navegar a las formas
+# Turn this on if you want to fill the last week
 # driver.find_element_by_xpath(week_back_button).click()
 sleep(2)
 
-# Abrir dia de la semana correspondiente
+# Open corresponding day
 if current_day == "Monday":
     driver.find_element_by_css_selector(monday_standup).click()
 elif current_day == "Tuesday":
@@ -109,10 +108,10 @@ else:
 
 sleep(2)
 
-# Cambiar a la ventana actual
+# Change to current window
 driver.switch_to.window(driver.window_handles[-1])
 
-# Llenar forma
+# Fill form
 if current_day in same_form_days:
     three_goals = Select(driver.find_element_by_xpath(achieved_goals))
     sleep(1)
@@ -133,6 +132,9 @@ if current_day in same_form_days:
     driver.find_element_by_xpath(rest).send_keys("To take some rest")
     driver.execute_script("window.scrollTo(0, 1080)")
     driver.find_element_by_xpath(happy_face).click()
+    sleep(.5)
+    driver.find_element_by_xpath(submit).click()
+
 else:
     three_goals = Select(driver.find_element_by_xpath(friday_achieved_goals))
     sleep(1)
@@ -174,6 +176,4 @@ else:
     sleep(1)
     standup_rating.select_by_value("10")
     sleep(1)
-
-# Mandar forma
-# driver.find_element_by_xpath(submit).click()
+    driver.find_element_by_xpath(friday_submit).click()
