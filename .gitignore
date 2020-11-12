@@ -1,3 +1,4 @@
 # user_pass.py
 __pycache__/
 *.pyc
+debug.log
