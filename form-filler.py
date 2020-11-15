@@ -21,7 +21,7 @@ driver.get('https://dashboard.microverse.org/login')
 
 same_form_days = ["Monday", "Tuesday", "Wednesday", "Thursday"]
 notice = "*" * 15
-current_day = "Friday"
+current_day = get_day() # Change it to the day that you desire if you need to fill in another past day.
 mail_input = '//*[@id="1-email"]'
 password_input = '//*[@id="auth0-lock-container-1"]/div/div[2]/form/div/div/div/div[2]/div[2]/span/div/div/div/div/div/div/div/div/div/div/div[2]/div/div/input'
 login_button = '//*[@id="auth0-lock-container-1"]/div/div[2]/form/div/div/div/button'
@@ -114,15 +114,15 @@ driver.switch_to.window(driver.window_handles[-1])
 # Fill form
 if current_day in same_form_days:
     three_goals = Select(driver.find_element_by_xpath(achieved_goals))
-    sleep(1)
+    sleep(.5)
     three_goals.select_by_value("Some of them")
-    sleep(1)
+    sleep(.5)
     driver.find_element_by_xpath(went_well).send_keys(
         "Continued with the technical curriculum")
     driver.execute_script("window.scrollTo(0, 600)")
-    sleep(1)
+    sleep(.5)
     driver.find_element_by_xpath(nothing_wrong).click()
-    sleep(1)
+    sleep(.5)
     driver.find_element_by_xpath(goal1).send_keys(
         "To continue with the technical curriculum")
     driver.find_element_by_xpath(goal2).send_keys(
@@ -137,43 +137,43 @@ if current_day in same_form_days:
 
 else:
     three_goals = Select(driver.find_element_by_xpath(friday_achieved_goals))
-    sleep(1)
+    sleep(.5)
     three_goals.select_by_value("Some of them")
-    sleep(1)
+    sleep(.5)
     driver.find_element_by_xpath(friday_nothing_wrong).click()
-    sleep(1)
+    sleep(.5)
     driver.find_element_by_xpath(friday_went_well).send_keys(
         "Continued with the technical curriculum")
     driver.execute_script("window.scrollTo(0, 600)")
-    sleep(1)
+    sleep(.5)
     driver.find_element_by_xpath(friday_goal1).send_keys(
         "To continue with the professional curriculum")
     driver.find_element_by_xpath(friday_goal2).send_keys(
         "To continue with the technical curriculum")
     driver.find_element_by_xpath(friday_goal3).send_keys(
         "To continue with the coding challenges")
-    sleep(2)
+    sleep(.5)
     driver.find_element_by_xpath(friday_rest).send_keys("To take some rest")
-    sleep(1)
+    sleep(.5)
     # Partner rating
     for x in partner_rating_array:
       multiple_selection(x)
 
     # Standup team rating
     standup_rating = Select(driver.find_element_by_xpath(standup_enjoy))
-    sleep(1)
+    sleep(.5)
     standup_rating.select_by_value("10")
-    sleep(1)
+    sleep(.5)
     standup_rating = Select(driver.find_element_by_xpath(standup_daily_structure))
-    sleep(1)
+    sleep(.5)
     standup_rating.select_by_value("Often")
-    sleep(1)
+    sleep(.5)
     standup_rating = Select(driver.find_element_by_xpath(networking))
-    sleep(1)
+    sleep(.5)
     standup_rating.select_by_value("Other")
-    sleep(1)
+    sleep(.5)
     standup_rating = Select(driver.find_element_by_xpath(microverse_recommend))
-    sleep(1)
+    sleep(.5)
     standup_rating.select_by_value("10")
-    sleep(1)
+    sleep(.5)
     driver.find_element_by_xpath(friday_submit).click()
