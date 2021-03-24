@@ -4,6 +4,8 @@ from time import sleep
 from user_pass import mail_pass
 from datetime import date
 import calendar
+import sys
+
 
 def get_day():
     today = date.today()
@@ -13,10 +15,20 @@ def get_day():
 def multiple_selection(option):
     driver.find_element_by_xpath(option).click()
 
+def resource_path(relative_path):
+    """ Get absolute path to resource, works for dev and for PyInstaller """
+    try:
+        # PyInstaller creates a temp folder and stores path in _MEIPASS
+        base_path = sys._MEIPASS
+    except Exception:
+        base_path = os.path.abspath(".")
+
+    return os.path.join(base_path, relative_path)
+
 email, password = mail_pass()
 
-chromedriver_location = 'chromedriver.exe'
-driver = webdriver.Chrome(chromedriver_location)
+# chromedriver_location = 'chromedriver.exe'
+driver = webdriver.Chrome(resource_path('chromedriver.exe'))
 driver.get('https://dashboard.microverse.org/login')
 
 same_form_days = ["Monday", "Tuesday", "Wednesday", "Thursday"]
